@@ -1,7 +1,5 @@
  
-// connect4 ai
-
-
+// connect4 ai Artificial Neural Network
 
 public class NeuralNetwork{
   
@@ -10,12 +8,15 @@ public class NeuralNetwork{
 	int n_neurons_L1, n_neurons_L1, n_neurons_L1;
 	int num_Itertions;
 	float learning_rate;	
-	
+
 
 	// train model
 	public void trainModel(){
 
 	}
 
-  // query()
+	// query()
+	public Location query(){
+		
+	}
 }
