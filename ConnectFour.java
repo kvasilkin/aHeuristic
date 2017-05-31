@@ -34,12 +34,21 @@ public class ConnectFour {
 
     //checks if coord is a valid move
 
-    public static  boolean isValidMove(int r,int c){}
+    public static  boolean isValidMove(int r,int c){
+	boolean result = false;
+	if (c == 0){result = true;}
+	if (board[r][c] == 'x' && board[r][c - 1] == 'x'){result = true;}
+	return result;
+}
     //shows valid moves
-    public static void showMoves(){}
+    public static void showMoves(){
+
+}
+    
+
     //puts down a piece 
     public static  void move(int c){}
-    //checks current board to see if it is a win and which player is winning
+    //evaluates if the board is in a winning state
     public static  int  isWin(){}
     //prints out char representation of board
     public String toString{}
