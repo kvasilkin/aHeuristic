@@ -1,0 +1,15 @@
+Katherine Vasilkin
+Lorenzo Schneiderman
+Pd 6
+ 
+  Connect Four Game + Solver:
+ The goal of our project is to create a working Connect Four game with the option for either one or two players. (ZERO PLAYER?) The two player option will be a standard game where two players make decisions and play through the game. The one player option will be played against the Computer. This option is a key part of the project. The computer will learn how to play the game using machine learning and neural networks. The algorithm will learn based on data of already completed games that are marked as either win, lose or draw. 
+ 
+Stages of development:
+Terminal based game with only 2 player option
+Terminal based game with 1 player and 2 player options 
+A game displayed using Processing with both player options (if there is enough time)
+ 
+  This project can be split into 2 parts, the game, and the algorithm that plays it
+The game will need a board, player's, pieces, a way to determine valid moves a way to determine if the game has been won yet, and a way to keep score.
+The algorithm part of the project will need a way to organize the given data, analyze it, and apply it to the game 
