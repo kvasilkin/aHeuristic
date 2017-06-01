@@ -47,9 +47,32 @@ public class ConnectFour {
     
 
     //puts down a piece 
-    public static  void move(int c){}
+    public static  void move(int c){
+	for(int i = 7; i > 0; i--){
+	    if (board[c][i] == 'x'){
+		board[c][i] = '0';
+}
+}
+}
     //evaluates if the board is in a winning state
-    public static  int  isWin(){}
+    public static  boolean   isWin(){
+	for (int r= 0; r < 7; r++  ){
+	    for (int c = 0; c < 6; c++){
+		if (r < 4){
+		    if (board [r][c] =='0' && board [r + 1][c] =='0' && board [r + 2][c] =='0' && board [r + 3][c] =='0' ){
+			return true;
+		    }
+		}
+		    if (c < 3){
+		    if (board [r][c] =='0' && board [r][c + 1] =='0' && board [r ][c + 2] =='0' && board [r][c + 3] =='0' ){
+			return true;
+		    }
+		    }
+
+		    if ()
+}
+}
+}
     //prints out char representation of board
     public String toString{}
 
