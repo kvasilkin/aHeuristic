@@ -63,14 +63,14 @@ public class ConnectFour {
 return player; }
     //evaluates if the board is in a winning state for red
     public static  boolean    isRedWin(){
-	for (int r= 0; r < 7; r++  ){
-	    for (int c = 0; c < 6; c++){
-		if (r < 4){
+	for (int r= 0; r < 6; r++  ){
+	    for (int c = 0; c < 7; c++){
+		if (r < 3){
 		    if (board [r][c] =='r' && board [r + 1][c] =='r' && board [r + 2][c] =='r' && board [r + 3][c] =='r' ){
 			return true;
 		    }
 		}
-		if (c < 3){
+		if (c < 4){
 		    if (board [r][c] =='r' && board [r][c + 1] =='r' && board [r ][c + 2] =='r' && board [r][c + 3] =='r' ){
 			return true;
 		    }
@@ -80,16 +80,16 @@ return player; }
 	    }
 	}
     
-	for (int r= 0; r < 4; r++){
-	    for (int c = 0; c < 3; c++){
+	for (int r = 0; r < 3; r++){
+	    for (int c = 0; c < 4; c++){
 		if (board [r][c] =='r' && board [r + 1][c +1 ] =='r' && board [r + 2][c +2] =='r' && board [r + 3][c +3 ] =='r' ){
 		    return true; }
 	    }
 	}
 
-	for (int r = 6; r > 7 ; r--){
-	    for (int c = 0; c < 3; c++){
-		if (board [r][c] =='r' && board [r - 1][c - 1 ] =='r' && board [r - 2][c - 2] =='r' && board [r - 3][c - 3 ] =='r' ){
+	for (int r = 0; r < 3 ; r++){
+	    for (int c = 6; c > 2; c--){
+		if (board [r][c] =='r' && board [r + 1][c - 1 ] =='r' && board [r + 2][c - 2] =='r' && board [r + 3][c - 3 ] =='r' ){
 		    return true; }
 	    }
 	}
@@ -105,15 +105,15 @@ return player; }
 
 
     //checks if board is in a winnign state for black
-    public static  boolean    isBlackWin(){
-	for (int r= 0; r < 7; r++  ){
-	    for (int c = 0; c < 6; c++){
-		if (r < 4){
+ public static  boolean    isBlackWin(){
+	for (int r= 0; r < 6; r++  ){
+	    for (int c = 0; c < 7; c++){
+		if (r < 3){
 		    if (board [r][c] =='b' && board [r + 1][c] =='b' && board [r + 2][c] =='b' && board [r + 3][c] =='b' ){
 			return true;
 		    }
 		}
-		if (c < 3){
+		if (c < 4){
 		    if (board [r][c] =='b' && board [r][c + 1] =='b' && board [r ][c + 2] =='b' && board [r][c + 3] =='b' ){
 			return true;
 		    }
@@ -123,20 +123,26 @@ return player; }
 	    }
 	}
     
-	for (int r= 0; r < 4; r++){
-	    for (int c = 0; c < 3; c++){
+	for (int r = 0; r < 3; r++){
+	    for (int c = 0; c < 4; c++){
 		if (board [r][c] =='b' && board [r + 1][c +1 ] =='b' && board [r + 2][c +2] =='b' && board [r + 3][c +3 ] =='b' ){
 		    return true; }
 	    }
 	}
 
-	for (int r = 6; r > 7 ; r--){
-	    for (int c = 0; c < 3; c++){
-		if (board [r][c] =='b' && board [r - 1][c - 1 ] =='b' && board [r - 2][c - 2] =='b' && board [r - 3][c - 3 ] =='b' ){
+	for (int r = 0; r < 3 ; r++){
+	    for (int c = 6; c > 2; c--){
+		if (board [r][c] =='b' && board [r + 1][c - 1 ] =='b' && board [r + 2][c - 2] =='b' && board [r + 3][c - 3 ] =='b' ){
 		    return true; }
 	    }
 	}
-	return false; }
+	return false;
+    }
+ 
+
+
+
+
  
 
 
@@ -157,14 +163,35 @@ return player; }
 ConnectFour field = new ConnectFour();
 //System.out.println(field.toString());
 
+field.move(2);
+System.out.println(field.toString());
 field.move(3);
+System.out.println(field.toString());
+field.move(3);
+System.out.println(field.toString());
 field.move(4);
-field.move(3);
+System.out.println(field.toString());
+field.move(4);
+System.out.println(field.toString());
 field.move(5);
-field.move(3);
+System.out.println(field.toString());
+field.move(4);
+System.out.println(field.toString());
 field.move(5);
-field.move(3);
+System.out.println(field.toString());
+field.move(5);
+System.out.println(field.toString());
+field.move(1);
+System.out.println(field.toString());
+field.move(5);
+System.out.println(field.toString());
+field.move(5);
+System.out.println(field.toString());
+field.move(4);
+System.out.println(field.toString());
 
+System.out.println(isRedWin());
+System.out.println(isBlackWin());
 System.out.println(field.toString());
  //System.out.println(Arrays.deepToString(board));
 //field.move(3);
