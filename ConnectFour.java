@@ -46,21 +46,28 @@ public class ConnectFour {
     }
     
     //puts down a piece 
-    public   boolean move(int c){
+    public static   String move(int c){
 	for(int i = 5; i > -1; i--){
 	    if (board[i][c] == 'o'){
 		if (player){
 		    board[i][c] = 'r';
 		player = !player;
-		return true;}
+		if (isRedWin()){
+		    return "RED WON";
+			    }
+
+
+		}
 		else{
 		   board[i][c] = 'b';
 	player = !player;
-	return true;	
+        	if (isBlackWin()){
+		    return "BLACK WON";
+			    }	
 	}    	
 	}
     }
-return player; }
+return "input  next move"; }
     //evaluates if the board is in a winning state for red
     public static  boolean    isRedWin(){
 	for (int r= 0; r < 6; r++  ){
@@ -162,7 +169,7 @@ return player; }
     public static void main(String[] args) {
 ConnectFour field = new ConnectFour();
 //System.out.println(field.toString());
-
+/*
 field.move(2);
 System.out.println(field.toString());
 field.move(3);
@@ -192,6 +199,13 @@ System.out.println(field.toString());
 
 System.out.println(isRedWin());
 System.out.println(isBlackWin());
+System.out.println(field.toString());
+*/
+
+
+if (args[0].equals("move(0)")){
+    move(0);
+    }
 System.out.println(field.toString());
  //System.out.println(Arrays.deepToString(board));
 //field.move(3);
