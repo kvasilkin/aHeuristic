@@ -1,5 +1,5 @@
-final class ConnectFour{
-final     char [][] board = new char [6][7];
+
+     char [][] board = new char [6][7];
        boolean player = true; //true == red false = = black
      //final int numPlayers;
   void setup() {
@@ -21,7 +21,7 @@ line(200, 0, 200, 600);
 line(300, 0, 300, 600);
 line(400, 0, 400, 600);
 line(500, 0, 500, 600);
-line(600, 0, 600, 0);
+line(600, 0, 600, 600);
  
 
   for (int r = 0; r < 6; r++){
@@ -43,14 +43,7 @@ line(600, 0, 600, 0);
 
     //checks if coord is a valid move
 
-    public   boolean isValidMove(int r,int c){
-
-  if (c == 0){return  true;
-  }
-  if (board[r][c] == 'o' && board[r][c - 1] == 'o'){return  true;
-  }
-  return false;
-    }
+   
     
     //puts down a piece 
     public    String move(int c){
@@ -59,6 +52,7 @@ line(600, 0, 600, 0);
     if (player){
         board[i][c] = 'r';
     player = !player;
+    ellipse(i * 100, c *100, 50, 50);
     if (isRedWin()){
         return "RED WON";
           }
@@ -74,7 +68,8 @@ line(600, 0, 600, 0);
   }      
   }
     }
-return "input  next move"; }
+return "input  next move"; 
+
     //evaluates if the board is in a winning state for red
     public   boolean    isRedWin(){
   for (int r= 0; r < 6; r++  ){
@@ -109,6 +104,7 @@ return "input  next move"; }
   }
   return false;
     }
+    
  
 
 
@@ -174,8 +170,19 @@ return "input  next move"; }
     }
 void draw() {
   if (mousePressed) {
-ellipse(mouseX, mouseY, 50,50);
+
+if(mouseX > 0 && mouseX < 100){
+move(0);}
+if(mouseX > 100 && mouseX < 200){
+move(1);}
+if(mouseX > 200 && mouseX < 300){
+move(2);}
+if(mouseX > 300 && mouseX < 400){
+move(3);}
+if(mouseX > 400 && mouseX < 500){
+move(4);}
+if(mouseX > 500 && mouseX < 600){
+move(5);}
   }
   
 } 
-}
