@@ -28,7 +28,8 @@ public class ConnectFourTest{
     	return out;
     }
 
-    public float getHeurisitic(boolean player){
+    // digs through dataset to find heuristic
+    public float getHeurisiticStat(boolean player){
     	
     	// return % of wins from that position
     	// first check if win or loss--
@@ -40,6 +41,21 @@ public class ConnectFourTest{
     	}
     }
 
+    // finds if winning move
+    public float getHeurisitic(boolean player){
+        if (player){
+            // return +1000 if winning move
+        }
+        else{
+            // return -1000 if enemy winning move
+        }
+    }
+
+
+    // return board with new piece put at col c
+    public int[][] returnAppliedMove(int c){
+
+    }
 
     public float minimaxIteration(ConnectFourTest board, int depth, boolean player){//, float alpha, float beta){
 
