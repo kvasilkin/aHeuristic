@@ -8,7 +8,8 @@ public class ConnectFour {
 
     //constructor
 
-    public  ConnectFour(int p){
+    // init for p plahyers
+    public ConnectFour(int p){
 	//board = new char [7][6];
 	numPlayers = p;
 	player = true; //red
@@ -20,7 +21,7 @@ public class ConnectFour {
 
     }
 
-
+    // init with two players
     public  ConnectFour(){
 	//board = new char [7][6];
 	numPlayers = 2;
@@ -35,7 +36,6 @@ public class ConnectFour {
 
 
     //checks if coord is a valid move
-
     public   boolean isValidMove(int r,int c){
 
 	if (c == 0){return  true;
@@ -45,13 +45,13 @@ public class ConnectFour {
 	return false;
     }
     
-    //puts down a piece 
+    //puts down a piece - lorenzo - doesnt this only check for win?
     public static   String move(int c){
 	for(int i = 5; i > -1; i--){
 	    if (board[i][c] == 'o'){
 		if (player){
 		    board[i][c] = 'r';
-		player = !player;
+		player = !player;      // i do not understand this 
 		if (isRedWin()){
 		    return "RED WON";
 			    }
