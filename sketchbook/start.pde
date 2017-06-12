@@ -234,6 +234,13 @@ cp5 = new ControlP5(this);
   return result;
     }
 void draw() {
+  if (!player){
+  int q = ConnectFourTest.returnAIMove(board, 4);
+  move(q);
+  }
+  
+  
+  
   if (isBlackWin()){
  stroke(#0B38AF); 
  strokeWeight(10);
