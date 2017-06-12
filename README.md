@@ -26,4 +26,4 @@ Pd 6
 	Progress:
 	June 5th: ConnectFour.java was completed enough to have the capabilities of being checked through the main. At this point we transitioned to processing and therefore, there was never a completed terminal version of ConnectFour complete with user input
 	June 10th: By this time the processing part of ConnectFour was complete and could be played by 2 players
-	June 11th:  The algorithma and processing parts were brought together to create a game played by the computer
+	June 11th:  The algorithm and processing parts were brought together to create a game played by the computer
