@@ -3,7 +3,7 @@ ControlP5 cp5;
   char [][] board = new char [6][7];
        boolean player = true; //true == red false = = black
     int[] row = new int[7];
-   
+   int timeStart;
          
      //final int numPlayers;
   void setup() {
@@ -23,14 +23,14 @@ line(400, 0, 400, 600);
 line(500, 0, 500, 600);
 line(600, 0, 600, 600);
 
-
+ timeStart=millis(); 
   for (int r = 0; r < 6; r++){
       for (int c = 0; c < 7; c++ ){
     board[r][c] = 'o';
           }
         }
 for (int k = 0; k < 7; k++) {
-row[k] = 6;}
+row[k] = 5;}
 cp5 = new ControlP5(this);
   
   // create a new button with name 'buttonA'
@@ -85,20 +85,22 @@ cp5 = new ControlP5(this);
   return false;
     }
     //puts down a piece 
-    public    void  move(int c){
+    
+    
+  public    void  move(int c){
    int i = row[c];
  
         if (player){
-        board[c][i] = 'r'; 
+        board[i][c] = 'r'; 
     fill(0);
-    ellipse(c * 100 + 50, mouseY/100, 50, 50);
-    row[c]--;   
+    ellipse(c * 100 + 50, i * 100 + 50, 50, 50);
+    row[c] = row[c] - 1;   
     }
     else{
      fill(#ED2424);
-      ellipse(c * 100 + 50, mouseY/100, 50, 50);
-       board[c][i] = 'b';
- row[c]--;
+    ellipse(c * 100 + 50, i * 100 + 50, 50, 50);
+       board[i][c] = 'b';
+ row[c] = row[c] - 1;
           
   }
   player = !player;
@@ -206,9 +208,35 @@ cp5 = new ControlP5(this);
   return result;
     }
 void draw() {
-  
+}
 
+  void R1A()   // Function is automatically made with name in quotes
+{if(millis()-timeStart<1000){return;}
+   move(0);
+}
 
-  }
-  
+  void R2A()   // Function is automatically made with name in quotes
+{if(millis()-timeStart<1000){return;}
+   move(1);
+}
+
+  void R3A()   // Function is automatically made with name in quotes
+{if(millis()-timeStart<1000){return;}
+   move(2);
+}
+  void R4A()   // Function is automatically made with name in quotes
+{if(millis()-timeStart<1000){return;}
+   move(3);
+}
+  void R5A()   // Function is automatically made with name in quotes
+{if(millis()-timeStart<1000){return;}
+   move(4);
+}
+  void R6A()   // Function is automatically made with name in quotes
+{if(millis()-timeStart<1000){return;}
+   move(5);
+}
+  void R7A()   // Function is automatically made with name in quotes
+{if(millis()-timeStart<1000){return;}
+   move(6);
 }
