@@ -3,19 +3,19 @@ ControlP5 cp5;
   char [][] board = new char [6][7];
        boolean player = true; //true == red false = = black
     int[] row = new int[7];
-   int timeStart;
-   int rw, cw, tw;
+   int timeStart, rw, cw, tw, depth;
+
          
      //final int numPlayers;
   void setup() {
-size(700, 700);
+size(800, 700);
 //horiz
-line(0, 100, 1000, 100);
-line(0, 200, 1000, 200);
-line(0, 300, 1000, 300);
-line(0, 400, 1000, 400);
-line(0, 500, 1000, 500);
-line(0, 600, 1000, 600);
+line(0, 100, 700, 100);
+line(0, 200, 700, 200);
+line(0, 300, 700, 300);
+line(0, 400, 700, 400);
+line(0, 500, 700, 500);
+line(0, 600, 700, 600);
 //vert
 line(100, 0, 100, 600);
 line(200, 0, 200, 600);
@@ -23,6 +23,7 @@ line(300, 0, 300, 600);
 line(400, 0, 400, 600);
 line(500, 0, 500, 600);
 line(600, 0, 600, 600);
+line(700, 0, 700, 600);
 
  timeStart=millis(); 
   for (int r = 0; r < 6; r++){
@@ -34,7 +35,12 @@ for (int k = 0; k < 7; k++) {
 row[k] = 5;}
 cp5 = new ControlP5(this);
   
-  // create a new button with name 'buttonA'
+  cp5.addSlider("depth")
+     .setPosition(750,40)
+     .setSize(50,500)
+     .setRange(0,8)
+     .setNumberOfTickMarks(8)
+     ;
   cp5.addButton("R1A")
      .setValue(0)
      .setPosition(0,600)
@@ -89,6 +95,7 @@ cp5 = new ControlP5(this);
     
     
   public    void  move(int c){
+
     strokeWeight(1);
    int i = row[c];
  
@@ -101,7 +108,7 @@ cp5 = new ControlP5(this);
     else{
      fill(0);
     ellipse(c * 100 + 50, i * 100 + 50, 50, 50);
-       board[i][c] = 'b';
+         board[i][c] = 'b';
  row[c] = row[c] - 1;
           
   }
@@ -234,11 +241,13 @@ cp5 = new ControlP5(this);
   return result;
     }
 void draw() {
+ 
   if (!player){
-  int q = ConnectFourTest.returnAIMove(board, 4);
+  int q = ConnectFourTest.returnAIMove(board, depth);
+
   move(q);
   }
-  
+
   
   
   if (isBlackWin()){
@@ -251,10 +260,10 @@ if (tw == 2){
      line(cw * 100 + 50, rw * 100 + 50, cw * 100 + 50, (rw + 3) * 100 + 50);
  }
  if (tw == 3){
-    line(rw * 100 + 50, cw * 100 + 50, (rw + 3) * 100 + 50, (cw - 3) * 100 + 50);
+    line(rw * 100 + 50, cw * 100 + 50, (rw + 3) * 100 + 50, (cw + 3) * 100 + 50);
  }
  if (tw == 4){
-    line(rw * 100 + 50, cw * 100 + 50, (rw + 3) * 100 + 50, (cw + 3) * 100 + 50);
+    line(rw * 100 + 50, cw * 100 + 50, (rw + 3) * 100 + 50, (cw - 3) * 100 + 50);
  }
   }
 if (isRedWin()){
@@ -267,10 +276,10 @@ if (isRedWin()){
      line(cw * 100 + 50, rw * 100 + 50, cw * 100 + 50, (rw + 3) * 100 + 50);
  }
  if (tw == 3){
-    line(rw * 100 + 50, cw * 100 + 50, (rw + 3) * 100 + 50, (cw - 3) * 100 + 50);
+    line(rw * 100 + 50, cw * 100 + 50, (rw + 3) * 100 + 50, (cw + 3) * 100 + 50);
  }
  if (tw == 4){
-    line(rw * 100 + 50, cw * 100 + 50, (rw + 3) * 100 + 50, (cw + 3) * 100 + 50);
+    line(rw * 100 + 50, cw * 100 + 50, (rw + 3) * 100 + 50, (cw - 3) * 100 + 50);
  } }
 }
 
