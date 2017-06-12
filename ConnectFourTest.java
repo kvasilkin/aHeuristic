@@ -102,7 +102,7 @@ public class ConnectFourTest{
         for (int col : showMoves(board)){
 
             //                                                team false = computer
-            double movefitness = minimaxIteration(returnAppliedMove(board, col, false), depth, false);
+            double movefitness = minimaxIteration(returnAppliedMove(board, col, false), depth, true);
             System.out.println("fitness for col " + col );
             System.out.println(movefitness);
             if (movefitness > maxFitnessSeen){
