@@ -16,7 +16,7 @@ Pd 6
 	        5. Try to connect Four in a row
 
    Bugs:	
-   There was a problem with the algorithm ignoring obvious winning / losing  moves, which was fixed by implementing a bot that looks for three in a row that can be blocked or used to win the game.
+   There was a problem with the algorithm ignoring obvious winning / losing  moves, especially when there were three in a row from either player, this could be fixed manually, which would defeat teh purpose of machine learning
 If the board gets too full, an indexOutOfBounds exception is thrown
 
 	   The algorithm uses a depth first search, and therefore favors the left side of the board	
