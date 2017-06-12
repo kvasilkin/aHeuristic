@@ -18,7 +18,7 @@ public class ConnectFourTest{
     	int[] out = new int[7];
     	int len = 0;
     	for (int col = 0; col < board[0].length; col++){
-    		if (board[1][col] == ' '){
+    		if (board[1][col] == 'o'){
     			out[len] = col;
     			len ++;
     		}
@@ -73,8 +73,8 @@ public class ConnectFourTest{
         }
         
         // starting from the bottom, check for space and return
-        for (int row = 0; row < board.length; row++){
-            if (board[row][c] == ' '){
+        for (int row = board.length - 1; row >= 0 ; row--){
+            if (board[row][c] == 'o'){
                 
                 // if human, place red, else place black
                 if (team){
@@ -102,10 +102,12 @@ public class ConnectFourTest{
         for (int col : showMoves(board)){
 
             //                                                team false = computer
-            double movefitness = minimaxIteration(returnAppliedMove(board, col, false), depth, true);
+            double movefitness = minimaxIteration(returnAppliedMove(board, col, false), depth , true);
+            
             System.out.println("fitness for col " + col );
             System.out.println(movefitness);
             if (movefitness > maxFitnessSeen){
+                
                 maxFitnessSeen = movefitness;
                 maxFitnessMove = col;
             }
