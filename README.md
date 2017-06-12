@@ -8,7 +8,7 @@ Pd 6
  
    The end product ended up being a 1 player, person vs. computer game with an option to change difficulty. The difficulty is based on the depth of the algorithm, or how many turns into the future it sees. This is toggled by the slider on the right with the light blue showing how difficult it is. This is a standard ConnectFour game which you win by getting 4 in a row horizontally, vertically, or diagonally. The human player is always red and goes first, and the computer is black. You play by clicking the button under the column of your desired turn. 
 
-   To Play:	
+   To Play:	0. Go into the sketchbook folder
                 1. Compile ConnectFourTest.java 	
                 2. Run start.pde
                 3. Select your difficulty using the slider (this can be changed between turns and is updated immediately)
