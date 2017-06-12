@@ -3,8 +3,8 @@
 import java.lang.Math;
 public class ConnectFourTest{
     //Vars
-    private char [][] board; // to be replaced with static function calls
-    private boolean player; //true == red, human ;  false == black, computer
+    // private char [][] board; // to be replaced with static function calls/
+    // private boolean player; //true == red, human ;  false == black, computer
     
 
     // class that stores and retrieves connect 4 states
@@ -35,7 +35,7 @@ public class ConnectFourTest{
     }
 
     // digs through dataset to find heuristic // implement if time 
-    public double getHeurisiticStat(boolean player){
+    // public double getHeurisiticStat(boolean player){
     	
     	// return % of wins from that position
     	// first check if win or loss--
@@ -48,8 +48,8 @@ public class ConnectFourTest{
     	// 	return 1 - storage.findProbability(board);
     	// }
 
-        return 0.0;
-    }
+        // return 0.0;
+    // }
 
     // finds if winning move
     // public double getHeurisitic(boolean player){
@@ -92,7 +92,7 @@ public class ConnectFourTest{
 
     }
 
-    public int returnAIMove(char[][] board, int depth){
+    public static int returnAIMove(char[][] board, int depth){
         
         
         int maxFitnessMove = 3; // default middle
@@ -126,7 +126,7 @@ public class ConnectFourTest{
     // }
 
 
-    public boolean isWinningMoveWhole(char[][] board, int nextMove, boolean player){
+    public static boolean isWinningMoveWhole(char[][] board, int nextMove, boolean player){
         // for (int row = 0; row < board.length ; row++){
         //     if (board[row][nextMove] == ' '){
         //         if (player){
@@ -150,7 +150,7 @@ public class ConnectFourTest{
     }
 
     
-    public double minimaxIteration(char[][] board, int depth, boolean player){//, float alpha, float beta){
+    public static double minimaxIteration(char[][] board, int depth, boolean player){//, float alpha, float beta){
 
 
         // implement
