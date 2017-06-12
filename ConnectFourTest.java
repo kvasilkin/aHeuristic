@@ -63,6 +63,7 @@ public class ConnectFourTest{
     		return board.getHeurisitic()
     	}
 
+        // iff win return 999 if loss return -999
     	if (player){
     		bestVal = -999;
     		for (int nextMove : this.showMoves()){
