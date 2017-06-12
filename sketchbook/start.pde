@@ -4,6 +4,7 @@ ControlP5 cp5;
        boolean player = true; //true == red false = = black
     int[] row = new int[7];
    int timeStart;
+   int rw, cw, tw;
          
      //final int numPlayers;
   void setup() {
@@ -88,16 +89,17 @@ cp5 = new ControlP5(this);
     
     
   public    void  move(int c){
+    strokeWeight(1);
    int i = row[c];
  
         if (player){
         board[i][c] = 'r'; 
-    fill(0);
+    fill(#ED2424);
     ellipse(c * 100 + 50, i * 100 + 50, 50, 50);
     row[c] = row[c] - 1;   
     }
     else{
-     fill(#ED2424);
+     fill(0);
     ellipse(c * 100 + 50, i * 100 + 50, 50, 50);
        board[i][c] = 'b';
  row[c] = row[c] - 1;
@@ -115,12 +117,18 @@ cp5 = new ControlP5(this);
       for (int c = 0; c < 7; c++){
     if (r < 3){
         if (board [r][c] =='r' && board [r + 1][c] =='r' && board [r + 2][c] =='r' && board [r + 3][c] =='r' ){
-      return true;
+      tw = 1;
+      rw = r;
+      cw = c;
+          return true;
         }
     }
     if (c < 4){
         if (board [r][c] =='r' && board [r][c + 1] =='r' && board [r ][c + 2] =='r' && board [r][c + 3] =='r' ){
-      return true;
+      tw = 2;
+      rw = r;
+      cw = c;
+          return true;
         }
     }
 
@@ -131,14 +139,20 @@ cp5 = new ControlP5(this);
   for (int r = 0; r < 3; r++){
       for (int c = 0; c < 4; c++){
     if (board [r][c] =='r' && board [r + 1][c +1 ] =='r' && board [r + 2][c +2] =='r' && board [r + 3][c +3 ] =='r' ){
-        return true; }
+       tw = 3;
+      rw = r;
+      cw = c;  
+    return true; }
       }
   }
 
   for (int r = 0; r < 3 ; r++){
       for (int c = 6; c > 2; c--){
     if (board [r][c] =='r' && board [r + 1][c - 1 ] =='r' && board [r + 2][c - 2] =='r' && board [r + 3][c - 3 ] =='r' ){
-        return true; }
+       tw = 4;
+      rw = r;
+      cw = c;   
+    return true; }
       }
   }
   return false;
@@ -159,12 +173,18 @@ cp5 = new ControlP5(this);
       for (int c = 0; c < 7; c++){
     if (r < 3){
         if (board [r][c] =='b' && board [r + 1][c] =='b' && board [r + 2][c] =='b' && board [r + 3][c] =='b' ){
-      return true;
+      tw = 1;
+      rw = r;
+      cw = c;
+          return true;
         }
     }
     if (c < 4){
         if (board [r][c] =='b' && board [r][c + 1] =='b' && board [r ][c + 2] =='b' && board [r][c + 3] =='b' ){
-      return true;
+     tw = 2;
+      rw = r;
+      cw = c;
+          return true;
         }
     }
 
@@ -175,14 +195,20 @@ cp5 = new ControlP5(this);
   for (int r = 0; r < 3; r++){
       for (int c = 0; c < 4; c++){
     if (board [r][c] =='b' && board [r + 1][c +1 ] =='b' && board [r + 2][c +2] =='b' && board [r + 3][c +3 ] =='b' ){
-        return true; }
+       tw = 3;
+      rw = r;
+      cw = c;    
+    return true; }
       }
   }
 
   for (int r = 0; r < 3 ; r++){
       for (int c = 6; c > 2; c--){
     if (board [r][c] =='b' && board [r + 1][c - 1 ] =='b' && board [r + 2][c - 2] =='b' && board [r + 3][c - 3 ] =='b' ){
-        return true; }
+       tw = 4;
+      rw = r;
+      cw = c; 
+    return true; }
       }
   }
   return false;
@@ -208,6 +234,37 @@ cp5 = new ControlP5(this);
   return result;
     }
 void draw() {
+  if (isBlackWin()){
+ stroke(#0B38AF); 
+ strokeWeight(10);
+if (tw == 2){ 
+   line(cw * 100 + 50, rw * 100 + 50, (cw +  3) * 100 + 50, rw  * 100 + 50);
+ }
+ if (tw == 1){
+     line(cw * 100 + 50, rw * 100 + 50, cw * 100 + 50, (rw + 3) * 100 + 50);
+ }
+ if (tw == 3){
+    line(rw * 100 + 50, cw * 100 + 50, (rw + 3) * 100 + 50, (cw - 3) * 100 + 50);
+ }
+ if (tw == 4){
+    line(rw * 100 + 50, cw * 100 + 50, (rw + 3) * 100 + 50, (cw + 3) * 100 + 50);
+ }
+  }
+if (isRedWin()){
+ stroke(#0B38AF);
+ strokeWeight(10);
+ if (tw == 2){ 
+   line(cw * 100 + 50, rw * 100 + 50, (cw +  3) * 100 + 50, rw  * 100 + 50);
+ }
+ if (tw == 1){
+     line(cw * 100 + 50, rw * 100 + 50, cw * 100 + 50, (rw + 3) * 100 + 50);
+ }
+ if (tw == 3){
+    line(rw * 100 + 50, cw * 100 + 50, (rw + 3) * 100 + 50, (cw - 3) * 100 + 50);
+ }
+ if (tw == 4){
+    line(rw * 100 + 50, cw * 100 + 50, (rw + 3) * 100 + 50, (cw + 3) * 100 + 50);
+ } }
 }
 
   void R1A()   // Function is automatically made with name in quotes
@@ -215,28 +272,28 @@ void draw() {
    move(0);
 }
 
-  void R2A()   // Function is automatically made with name in quotes
+  void R2A()   
 {if(millis()-timeStart<1000){return;}
    move(1);
 }
 
-  void R3A()   // Function is automatically made with name in quotes
+  void R3A()   
 {if(millis()-timeStart<1000){return;}
    move(2);
 }
-  void R4A()   // Function is automatically made with name in quotes
+  void R4A()  
 {if(millis()-timeStart<1000){return;}
    move(3);
 }
-  void R5A()   // Function is automatically made with name in quotes
+  void R5A()   
 {if(millis()-timeStart<1000){return;}
    move(4);
 }
-  void R6A()   // Function is automatically made with name in quotes
+  void R6A()   
 {if(millis()-timeStart<1000){return;}
    move(5);
 }
-  void R7A()   // Function is automatically made with name in quotes
+  void R7A()   
 {if(millis()-timeStart<1000){return;}
    move(6);
 }
